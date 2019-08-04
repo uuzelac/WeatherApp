@@ -86,13 +86,6 @@ export const styles = StyleSheet.create({
         marginBottom: margin.xxs,
         color: colors.greyDark
     },
-    selectedContainerCardsView: {
-        flex: 2,
-        marginBottom: margin.sm,
-        marginStart: margin.sm,
-        marginEnd: margin.sm,
-        backgroundColor: 'white',
-    },
     selectedContainerButtonWrapper: {
         flexDirection: 'row',
         justifyContent: 'flex-end',
@@ -106,4 +99,10 @@ export const styles = StyleSheet.create({
     selectedContainerButtonArrow: {
         color: colors.headerBackground,
     },
+    cardContainerCardsView: {
+        flex: 2,
+        flexDirection: 'row',
+        marginBottom: margin.sm,
+        paddingStart: padding.sm
+    }
 });
