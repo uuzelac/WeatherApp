@@ -5,6 +5,7 @@ module.exports = {
     "arrow-body-style": 0,
     "max-len": 0,
     "react/require-extension": "off",
-    "global-require": 0
+    "global-require": 0,
+    "camelcase": 0
   }
 };
