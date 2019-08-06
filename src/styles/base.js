@@ -10,7 +10,8 @@ export const colors = {
     headerTitle: '#FF6738',
     buttonBackground: '#FF6738',
     greyLight: '#EDECED',
-    greyDark: '#8E8E8E'
+    greyDark: '#8E8E8E',
+    spinnerBackgroundColor: '#00000040'
 };
 
 export const fontSize = {
