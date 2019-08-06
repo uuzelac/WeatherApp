@@ -56,6 +56,7 @@ class HourlyView extends Component {
             // Combine two arrays
             hours = [...hours, ...pmHours];
         } else {
+            // Check all PM hours
             for (const key of keysPM) {
                 if (moment(`${key} PM`, ['h A']).isAfter(currentDate)) {
                     hours.push({ ...this.props.selectedDay.hourly.PM[key], time: `${key} PM` });
@@ -75,22 +76,22 @@ class HourlyView extends Component {
         return hours;
     }
 
-    returnNumberOfValidElements = () => {
+    returnNumberOfValidHours = () => {
         return this.state.hours.filter(hour => !hour.invisible).length;
     }
 
     returnWeatherData = () => {
-        if (this.state.showMoreButtonVisible && this.returnNumberOfValidElements() > 8) {
+        if (this.state.showMoreButtonVisible && this.returnNumberOfValidHours() > 8) {
             return this.state.hours.slice(0, 8);
         }
         return this.state.hours;
     }
 
     renderButton = () => {
-        if (this.state.showMoreButtonVisible && this.returnNumberOfValidElements() > 8) {
+        if (this.state.showMoreButtonVisible && this.returnNumberOfValidHours() > 8) {
             return (
                 <Button
-                    label={`Show next ${this.returnNumberOfValidElements() - 8} hours`}
+                    label={`Show next ${this.returnNumberOfValidHours() - 8} hours`}
                     action={() => this.setState({ showMoreButtonVisible: false })}
                 />
             );
