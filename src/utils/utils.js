@@ -1,3 +1,4 @@
+import moment from 'moment';
 import {
     PARTLY_SUNNY,
     RAIN,
@@ -29,4 +30,12 @@ export const getWeatherDescription = (flag) => {
 
 export const getWeatherImage = (flag, size) => {
     return images[`${flag}_${size}`];
+};
+
+export const returnCurrentHour = (date, hour12) => {
+    return moment(date).format(hour12 ? 'h' : 'k');
+};
+
+export const returnAmPm = (date) => {
+    return moment(date).format('A');
 };
