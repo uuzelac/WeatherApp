@@ -11,3 +11,5 @@ export const CLOUDY = 'cloudy';
 export const SIZE_SMALL = 'sm';
 export const SIZE_MEDIUM = 'md';
 export const SIZE_LARGE = 'lg';
+
+export const NUMBER_OF_COLUMNS = 4;
