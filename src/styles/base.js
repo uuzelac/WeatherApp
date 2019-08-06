@@ -21,6 +21,7 @@ export const fontSize = {
     xl: 24,
     xxl: 28,
     xxxl: 32,
+    xxxxl: 36,
     maxTemp: 64,
     minTemp: 36
 };
@@ -44,5 +45,6 @@ export const padding = {
     lg: 30,
     xl: 40,
     xxl: 50,
-    xxxl: 60
+    xxxl: 60,
+    largeButton: 15,
 };
