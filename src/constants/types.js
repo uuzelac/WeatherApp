@@ -13,3 +13,6 @@ export const SIZE_MEDIUM = 'md';
 export const SIZE_LARGE = 'lg';
 
 export const NUMBER_OF_COLUMNS = 4;
+
+export const LOADING_START = 'loading_start';
+export const LOADING_STOP = 'loading_stop';
