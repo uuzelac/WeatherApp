@@ -6,12 +6,13 @@ import { getWeatherData } from '../../actions/WeatherAction';
 import { colors } from '../../styles/base';
 import { styles } from './style';
 import Separator from '../../components/separator/Separator';
-import { getWeatherDescription, getWeatherImage } from '../../utils/utils';
-import {
-    SIZE_SMALL,
-    SIZE_MEDIUM,
-    SIZE_LARGE,
-} from '../../constants/types';
+import { 
+    getWeatherDescription, 
+    getWeatherImage,
+    returnCurrentHour,
+    returnAmPm
+} from '../../utils/utils';
+import { SIZE_MEDIUM, SIZE_LARGE } from '../../constants/types';
 import WeatherForecastHomeCard from '../../components/wetherforecasthomecard/WeatherForecastHomeCard';
 
 class WeatherForecastHome extends Component {
@@ -46,16 +47,9 @@ class WeatherForecastHome extends Component {
 
     openHourlyViewScreen = () => {
         this.props.navigation.navigate('Details', {
-            content: this.props
+            content: this.props,
+            title: moment(this.props.selectedDay.date).format('dddd, MMMM D')
         });
-    }
-
-    returnCurrentHour = (date, hour12) => {
-        return moment(date).format(hour12 ? 'h' : 'H');
-    }
-
-    isAmPm = () => {
-        return this.returnCurrentHour(this.state.currentDate, false) >= 12 ? 'PM' : 'AM';
     }
 
     isToday = (date) => {
@@ -65,7 +59,7 @@ class WeatherForecastHome extends Component {
     }
 
     returnDescriptionFlag = (day) => {
-        return day.hourly[this.isAmPm()][this.returnCurrentHour(this.state.currentDate, true)].description_flag;
+        return day.hourly[returnAmPm(this.state.currentDate)][returnCurrentHour(this.state.currentDate, true)].description_flag;
     }
 
     renderData = () => {
